@@ -1,0 +1,18 @@
+digraph g{
+rankdir = LR;
+v_down0[shape=point];
+v_up0[shape=point];
+v_up0->v_up1[color=blue4];
+v_down0->v_down2[color=firebrick4];
+v_down0->v_up0[style=dashed; color=gray34, arrowhead = none, label = 0];
+v_down1[shape=point];
+v_up1[shape=point];
+v_up1->v_up2[color=green];
+v_down1->v_down1[color=firebrick4];
+v_down1->v_up1[style=dashed; color=gray34, arrowhead = none, label = 1];
+v_down2[shape=point];
+v_up2[shape=point];
+v_up2->v_up0[color=blue4];
+v_down2->v_down0[color=firebrick4];
+v_down2->v_up2[style=dashed; color=gray34, arrowhead = none, label = 2];
+}

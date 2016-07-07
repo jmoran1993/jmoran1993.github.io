@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Soutenance de Stage de Recherche</title>
+
+    <meta name="description" content="Soutenance de stage">
+    <meta name="author" content="José MORAN">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+</head>
+
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>Soutenance de stage</h1>
+        <h3>Algorithme de Monte-Carlo diagrammatique en espace réel</h3>
+        <center>
+          <p>José MORAN</p>
+          <p>X2013</p>
+        </center>
+        <img src="Images/cdfw.png" alt="cdf" height="70" style="border:none; margin-right:100px; background:none">
+        <img src="Images/polytechniquewhite.png" alt="polytechnique" height="70" style="border:none; margin-left:100px; background:none">
+      </section>
+
+      <section>
+        <h2>Plan</h2>
+        <ul>
+          <li>Introduction</li>
+        </ul>
+        <p>
+          <ol>
+            <li class="fragment">Les systèmes électroniques fortement corrélés</li>
+            <li class="fragment">Le Monte-Carlo diagrammatique</li>
+            <li class="fragment">Résultats et alpha-shift</li>
+          </ol>
+        </p>
+        <p>
+          <ul>
+            <li class="fragment">Conclusion et perspectives</li>
+          </ul>
+        </p>
+      </section>
+
+      <section>
+        <section>
+          <h3>Les systèmes électroniques fortement corrélés</h3>
+          <img src="./Images/Cuprates_phasedigagram_en.svg" alt="cuprate pd" style="border:none; background:white">
+          <center>
+            <p>
+              <small>Diagramme de phase des cuprates</small>
+            </p>
+          </center>
+        </section>
+        <section>
+          <h3>Les systèmes électroniques fortement corrélés</h3>
+          <p>
+            Modèle de Hubbard :
+          </p>
+          <center>
+            <img src="./Images/equationhubbard.svg" height="120" alt="hubbard", style="border:none; background:none">      
+          </center>
+          <ul>
+            <li class="fragment">Pas de solution analytique</li>
+            <li class="fragment">$\Rightarrow$ traitement perturbatif avec des diagrammes de Feynman</li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3>Diagrammes de Feynman</h3>
+          <p>
+            <img src="./Images/feyn.png" height="300" alt="feyn", style="border:none; background:white">
+          </p>
+          <p>
+            <img src="./Images/greenexpansion.png" alt="greenexpansion" height="175" style="border:none">
+          </p>
+        </section>
+        <section>
+          <h3>Expansion diagrammatique de la self-energy</h3>
+          <p>
+            <img src="./Images/dyson.png" alt="dyson" height="100" style="border:none">
+          </p>
+          <p>
+            <img src="./Images/selfexpansion.png" alt="selfexpansion" height="275" style="border:none">
+          </p>
+        </section>
+        <section>
+          <h3>Problèmes</h3>
+          <ul>
+            <li class="fragment">Nombre de diagrammes quasi-exponentiel en l'ordre de perturbation</li>
+            <li class="fragment">Problème de signe fermionique </li>
+          </ul>
+          <p class="fragment">$\Rightarrow$ nécessité d'algorithmes efficaces</p>
+        </section>
+      </section>
+
+      <section>
+        <section>
+        <h3>Algorithme de Monte-Carlo</h3>
+          <p>Concept : faire du sampling d'une distribution à l'aide d'une chaîne de Markov</p>
+          <video width="500" controls autoplay loop>
+            <source src="./animations/anim2part.ogg" type="video/ogg">
+          </video> 
+          </section>
+        <section>
+          <p>Monte-Carlo diagrammatique : on fait une marche aléatoire dans l'espace des diagrammes.</p>
+          <img src="./animations/diagmc.gif" alt="diagmc" height="300" style="border:none">
+          <p class="fragment">Le temps que notre algorithme passe dans chaque diagramme nous donne sa valeur</p>
+        </section>
+        <section>
+          <h3>Évaluation de la self-energy</h3>
+          <p>
+            <img src="./Images/selfexpansion.png" alt="selfexpansion" height="275" style="border:none">
+          </p>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3>$\alpha$-shift</h3>
+          <p>Structure analytique de la série perturbative :</p>
+          <p>$\Sigma=\sum_k \sigma_k U^k$</p>
+          <p class="fragment"><b>Quel rayon de convergence pour cette série ?</b></p>
+        </section>
+        <section>
+          <h3>Introduction d'un Hamiltonien shifté</h3>
+          <img src="./Images/shift.svg" alt="shift" height="120" style="border:none; background:none">
+          <p>Identique au Hamiltonien de départ pour $\xi=U$.</p>
+        </section>
+        <section>
+          <h3>Motivation</h3>
+          <p>$\Rightarrow$ améliorer la convergence de la série <b>analytique</b>.</p>
+          <video width="500" controls autoplay loop>
+            <source src="./animations/polesomega0.ogg" type="video/ogg">
+          </video>
+          <p>Structure des poles pour $\Sigma(\omega_0)$</p> 
+        </section>
+        <section>
+          <h3>Autres fréquences</h3>
+          <video width="500" controls autoplay loop>
+            <source src="./animations/polesomega1.ogg" type="video/ogg">
+          </video> 
+          <p>Structure des poles pour $\Sigma(\omega_1)$</p> 
+        </section>
+        <section>
+          <h3>Autres fréquences</h3>
+          <video width="500" controls autoplay loop>
+            <source src="./animations/polesomega3.ogg" type="video/ogg">
+          </video> 
+          <p>Structure des poles pour $\Sigma(\omega_3)$</p> 
+        </section>
+      </section>
+      <section>
+        <section>
+          <h3>Résultats</h3>
+          <p>Bonne convergence de l'algorithme vers les résultats analytiques</p>
+          <img src="./Images/u12a0/realomega1.png" alt="noshift" height="300">
+        </section>
+      </section>
+    </div>
+
+
+
+  </div>
+
+
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+
+      math: {
+          mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+          config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+      },
+      // More info https://github.com/hakimel/reveal.js#dependencies
+      dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true },
+        { src: 'plugin/math/math.js', async: true }
+      ]
+    });
+
+  </script>
+</body>
+</html>
