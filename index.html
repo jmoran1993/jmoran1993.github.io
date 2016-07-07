@@ -112,7 +112,7 @@
         <section>
           <h3>Problèmes</h3>
           <ul>
-            <li class="fragment">Nombre de diagrammes quasi-exponentiel en l'ordre de perturbation</li>
+            <li class="fragment">Nombre de diagrammes factoriel en l'ordre de perturbation</li>
             <li class="fragment">Problème de signe fermionique </li>
           </ul>
           <p class="fragment">$\Rightarrow$ nécessité d'algorithmes efficaces</p>
@@ -135,8 +135,16 @@
         <section>
           <h3>Évaluation de la self-energy</h3>
           <p>
-            <img src="./Images/selfexpansion.png" alt="selfexpansion" height="275" style="border:none">
+            <img src="./Images/selfexpansion.png" alt="selfexpansion" height="350" style="border:none">
           </p>
+        </section>
+        <section>
+          <h3>Motivations</h3>
+          <ul>
+            <li>Proposer une méthode différent aux algorithmes de Monte-Carlo diagrammatique existants</li>
+            <li class="fragment">Calculer de manière efficace</li>
+            <li class="fragment">Pouvoir étudier la dépendance $\Sigma(i\omega_n, k)$</li>
+          </ul>
         </section>
         <section>
           <h1>But:</h1>
@@ -150,7 +158,16 @@
         <section>
           <h3>Premiers résultats</h3>
           <p>Bonne convergence de l'algorithme vers les résultats analytiques</p>
-          <img src="./Images/u12a0/realomega1.png" alt="noshift" height="300" style="borders:none">
+          <img src="./Images/u12a0/realomega1.png" alt="noshift" height="500" style="borders:none">
+        </section>
+        <section>
+          <p>...les valeurs numériques coïncident très bien avec les valeurs analytiques..</p>
+          <img src="./Images/u12a0/imomega1.png" alt="noshiftim" height="500" style="borders:none">
+        </section>
+        <section>
+          <p>...mais il est difficile d'extrapoler avec peu d'ordres.</p>
+          <img src="./animations/rea0.gif" alt="realsigma" height="500" style="borders:none">
+          <p class="fragment">La série converge-t-elle ?</p>
         </section>
       </section>
 
@@ -192,9 +209,50 @@
       <section>
         <section>
           <h3>Résultats</h3>
-          <p>Bonne convergence de l'algorithme vers les résultats analytiques</p>
-          <img src="./Images/u12a0/realomega1.png" alt="noshift" height="300">
+          <p>Convergence nettement améliorée !</p>
+          <img src="./Images/u12a06/reomega0.png" alt="noshift" height="500" style="borders:none">
         </section>
+        <section>
+          <p>On parvient même à converger dès l'ordre 2</p>
+          <img src="./Images/u12a06/imomega0.png" height="500" style="borders:none">
+        </section>
+        <section>
+          <h3>Différence flagrante !</h3>
+          <img src="./animations/rea06.gif" alt="realsigma" height="500" style="borders:none">
+        </section>
+        <section>
+          <img src="./animations/ima06.gif" alt="imsigma" height="500" style="borders:none">
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2>Conclusion</h2>
+          <ul>
+            <li>Création et implémentation du premier algorithme de Monte-Carlo diagrammatique en espace-réel</li>
+            <li>Algorithme testé</li>
+            <li>Introduction de la technique de ressommation $\alpha$-shift</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Remarques</h2>
+          <ul>
+            <li class="fragment">Déjà utilisable pour des modèles d'impuretés</li>
+            <li class="fragment">Pas restreint à la self-energy, ni au modèle de Hubbard !</li>
+            <li class="fragment">Extension triviale du code au réseau</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Perspectives pour la suite</h2>
+          <ul>
+            <li>Comparer à d'autres méthodes</li>
+            <li>Poursuivre l'étude du $\alpha$-shift</li>
+            <li>Étendre au réseau</li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <h1>Merci.</h1>
       </section>
     </div>
 
