@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Présentation GICS Camille Sée</title>
+
+    <meta name="description" content="Présentation GICS">
+    <meta name="author" content="José MORAN">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+</head>
+
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>Physique Statistique</h1>
+        <center>
+        <img src="Images/Snowflake.jpg" height="280" style="border:none; margin-right:100px; background:none">
+        <img src="Images/url.png" height="280" style="border:none; margin-right:100px; background:none">
+        <h3>Du microscopique au macroscopique</h3>
+          <p>José MORAN</p>
+        </center> 
+      </section>
+      
+      <section>
+        <h2>Les "gros" domaines en physique ?</h2>
+      </section>
+      <section>
+        <section>
+          <h2>La physique quantique</h2>
+          <p>Chat de Schrödinger, effet tunnel, intrication, atomes froids....</p>
+          <img src="gifs/tunnel.gif" height="300" style="border:none; margin-right:100px; background:none" align="middle">
+        </section>
+        <section>
+          <h2>La physique des particules </h2>
+          <p>Quarks, neutrinos, boson de Higgs...</p>
+          <video width="600" controls autoplay loop>
+            <source src="./Videos/particles.mp4" type="video/mp4">
+          </video>
+        </section>
+        <section>
+          <h2>La physique théorique</h2>
+          <p>Théorie des cordes, gravité quantique...</p>
+          <center>
+          <img src="gifs/string.gif" height="300" style="border:none; margin-right:100px; background:none" align="middle">
+          </center>
+        </section>
+        <section>
+          <h2>Relativité et cosmologie</h2>
+          <p>Big bang, trous noirs, ondes gravitationnelles...</p>
+          <center>
+          <img src="gifs/gravwaves.gif" height="300" style="border:none; margin-right:100px; background:none" align="middle">
+          </center>
+        </section>
+        <section>
+          <h2>Physique statistique</h2>
+          <h2> et matière condensée !</h2>
+          <p>On connaît les "briques", qu'est-ce qui se passe quand on les met ensemble ?</p>
+          <center>
+          <img src="gifs/melting.gif" height="300" style="border:none; margin-right:100px; background:none" align="middle">
+          </center>
+        </section>
+        <section>
+          <p>Comprendre ce qui se passe quand il y a beaucoup (trop!) d'éléments qui intéragissent entre eux</p>
+          <center>
+          <img src="gifs/snowcrystal.gif" height="300" style="border:none; margin-right:100px; background:none">
+          </center>
+        </section>
+        <section>
+          <center>
+            <img src="gifs/superconductor.gif" height="300" style="border:none; margin-right:100px; background:none">
+          </center>
+        </section>
+      </section>
+      <section>
+        <section>
+        <h2>Comment est-ce que tout a commencé ?</h2>
+        <h3 class="fragment">La thermodynamique : l'étude de la chaleur</h3>
+        </section>
+        <section data-background="./gifs/balloon.gif" style="color:red">
+          <h2 style="color:red">L'air chaud s'expand !</h2>
+          <h3 style="color:white" class="fragment">$PV=nRT$</h3>
+        </section>
+        <section>
+          <h3>...et on peut s'en servir !</h3>
+          <img src="gifs/stirling.gif" height="500" style="border:none; margin-right:100px; background:none">
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1>Pourquoi ?</h1>
+          <p class="fragment">Un gaz : $10^{26}$ particules en intéraction. </p>
+          <p class="fragment">
+            $ma_i=\sum_{i\neq j}F_{j\rightarrow i}$
+          </p>
+          <p class="fragment">  
+            Il y a $10^{26}$ inconnues ! Impossible à résoudre. Mais...
+          </p>
+        </section>
+        <section>
+          <h3>La physique statistique : probabilités</h3>
+          <video width="600" controls autoplay loop>
+            <source src="./Videos/balls.ogv" type="video/ogg">
+          </video>
+          <p>En bleu : résultats de la simulation. Rouge : résultats théoriques</p>
+        </section>
+        <section>
+          <h2>Quelles grandeurs ?</h2>
+          <ul>
+            <li>La température : l'énergie des particules</li>
+            <li>La pression : la force avec laquelle les particules "cognent" contre les parois</li>
+            <li class="fragment">L'entropie : le désordre</li>
+          </ul>
+          <p class="fragment">Comment comprendre qu'il y ait des gaz, des liquides...?  </p>
+        </section>
+        <section>
+          <h3>Piste :</h3>
+          <p>Intéractions plus compliquées. En faisant varier un paramètre, le système change complètement !</p>
+          <img src="Images/pht.png" height="400" style="border:none; margin-right:100px; background:none">
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2>Le magnétisme</h2>
+          <h3>Modèle d'Ising</h3>
+          <img src="Images/ising.png" height="400" style="border:none; margin-right:100px; background:none">
+        </section>
+        <section>
+          <h3>Intéraction microscopique : alignement des boussoles</h3>
+          <img src="Images/spinsup.png" height="150" style="border:none; margin-right:100px; background:none">
+          <img src="Images/oppositespin.png" height="150" style="border:none; margin-right:100px; background:none">
+          <img src="Images/spinsdown.png" height="150" style="border:none; margin-right:100px; background:none">
+          <p>Les boussoles veulent s'aligner !</p>
+        </section>
+        <section>
+          <h3>Haute température</h3>
+          Indifférent : 
+          <img src="Images/spinsup.png" height="150" style="border:none; margin-right:100px; background:none">
+          <img src="Images/oppositespin.png" height="150" style="border:none; margin-right:100px; background:none">
+        </section>
+        <section>
+          <h3>Basse température</h3>
+          <p>On veut à tout prix s'aligner !</p>
+          <img src="Images/spinsup.png" height="150" style="border:none; margin-right:100px; background:none">
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1>Qu'est-ce que ça donne ?</h1>
+        </section>
+        <section>
+          <h3>Haute température</h3>
+          <video width="500" controls autoplay loop>
+            <source src="./Videos/hightemp.ogv" type="video/ogg">
+          </video>
+          <p>Il n'y a pas d'"ordre" apparent. Chacun fait ce qu'il veut...</p>
+          </section>
+          <section>
+          <h3>Basse température</h3>
+            <video width="500" controls autoplay loop>
+              <source src="./Videos/lowtemp.ogv" type="video/ogg">
+            </video>
+            <p>Un ordre émerge !</p>
+          </section>
+          <section>
+            <h3>Combien de boussoles pointent vers le haut (ou bas) en moyenne ?</h3>
+            <img src="Images/m.gif" height="400" style="border:none; margin-right:100px; background:none">
+            <p>Magnétisme !</p>
+          </section>
+          <section>
+            <h4>Qu'est ce qui se passe si les boussoles ne veulent pas s'aligner ?</h4>
+            <video width="500" controls autoplay loop>
+              <source src="./Videos/antif.ogv" type="video/ogg">
+            </video>
+          </section>
+      </section>
+
+      <section>
+        <section>
+          <h1>Question !</h1>
+          <h4>Qu'est-ce qui vous a fait avoir Snapchat/Facebook/un iPhone ?</h4>
+        </section>
+        <section>
+          <h2>Surprise !</h2>
+          <img src="Images/portables.png" height="400" style="border:none; margin-right:100px; background:none">
+        </section>
+        <section>
+          <h2>Quel est le lien...?</h2>
+          <ul>
+            <li class="fragment">Qu'est ce qui vous fait acheter un portable ?</li>
+          </ul>
+          <p class="fragment">$\Rightarrow$ des règles microscopiques "simples" donnent un comportement pas du tout prévisible !</p>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2>Autre exemple : le vol d'étourneaux</h2>
+          <p>Baladez vous un après-midi d'été, à Rome...</p>
+        </section>
+        <section data-background="./gifs/starlings.gif"></section>
+        <section>
+          <h2>Il n'y a pas d'oiseau leader ! </h2>
+          <p>et pourtant le vol est impressionant. Comment ça se fait ?</p>
+        </section>
+        <section data-background="./gifs/starlingsmicro.gif"></section>
+      </section>
+
+      <section>
+        <h2>Bilan :</h2>
+        <ul>
+          <li>Les systèmes avec beaucoup d'éléments : très compliqués</li>
+          <li>On s'en sort avec des modèles probabilistes</li>
+          <li>Les règles microscopiques donnent un comportement macroscopique !</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Les flocons de neige</h1>
+        <h1>La SNCF</h1>
+        <h1>Internet et Facebook</h1>
+      </section>
+
+      <section>
+        <section>
+          <h2>La formation des flocons</h2>
+          <img src="Images/snowflakegrowth.jpg" height="400" style="border:none; margin-right:100px; background:none">
+        </section>
+        <section>
+          <h3>Préliminaire : le crystal de sel</h3>
+          <img src="Images/salt-crystal.jpg" height="400" style="border:none; margin-right:100px; background:none">
+          <p>Parfaitement carré</p>
+        </section>
+        <section>
+          <h3>Pourquoi ? Structure microscopique !</h3>
+          <img src="Images/nacl.gif" height="400" style="border:none; margin-right:100px; background:none">
+          <p>La structure des atomes de sodium et chlore font qu'ils ont "envie"de se mettre comme ça.</p>
+        </section>
+        <section>
+          <h2>Symétries entre molécules</h2>
+          <img src="gifs/h2o.gif" height="400" style="border:none; margin-right:100px; background:none">
+          <p>Les molécules d'eau aiment bien se mettre en hexagone !</p>
+        </section>
+        <section>
+          <h3>Cette symétrie se retrouve dans la croissance d'un crystal</h3>
+          <img src="gifs/crystalgrowth.gif" height="400" style="border:none; margin-right:100px; background:none">
+        </section>
+        <section>
+          <h3>...mais le hasard donne beaucoup de richesse</h3>
+          <img src="Images/crystals.png" height="400" style="border:none; margin-right:100px; background:none">
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1>Internet et le réseau TGV</h1>
+        </section>
+        <section>
+          <h3>Différences :</h3>
+          <ul>
+            <li>Réseau TGV : planifié, très centralisé</li>
+            <li>Internet : pas du tout planifié, croissance organique</li>
+          </ul>
+          <p class="fragment">...et pourtant les deux sont vitaux </p>
+        </section>
+        <section>
+          <h3>Quelle est la stabilité du réseau TGV ?</h3>
+          <p>Qu'est-ce qui se passe si j'enlève une station ?</p>
+        </section>
+        <section>
+          <img src="Images/tgv.jpg" height="600" style="border:none; margin-right:100px; background:none">
+          <p>Si j'enlève Nice ? Lyon ? Paris ?</p>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3>Les connections entre serveurs</h3>
+            <img src="Images/map.gif" height="600" style="border:none; margin-right:100px; background:none">
+        </section>
+        <section>
+          <h3>Comment l'expliquer ? </h3>
+          <p>En somme : plus votre serveur est important, plus de gens vont s'y connecter, mais ils se connecteront aussi à d'autres serveurs...</p>
+        </section>
+        <section>
+          <h3>mais aussi vos réseaux sociaux</h3>
+            <img src="Images/twitternetwork.jpg" height="400" style="border:none; margin-right:100px; background:none">
+            <p>Par exemple la règle des 4-7 intermédiaires.</p>
+        </section>
+        <section>
+          <p>Il n'y a pourtant aucune planification, mais il y a des comportements étonnants. Comment mieux les comprendre ?</p>
+          <p class="fragment">Intérêt (exemple) : campagnes de vaccination, épidémies...</p>
+        </section>
+
+      </section>
+
+      <section>
+        <h1>Messages final</h1>
+        <ul>
+          <li>Des règles (très) simples à petite échelle donnent un comportement à grande échelle imprévisible</li>
+          <li>Il est important de comprendre ce type de phénomènes (pour la physique, mais aussi pour la société). Par exemple, l'intelligence qui émerge d'un ensemble de neurones ?</li>
+          <li><b>La physique a bien plus d'applications qu'on ne le croit !</b></li>
+        </ul>
+      </section>
+    </div>
+
+
+
+  </div>
+
+
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+
+      math: {
+          mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+          config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+      },
+      // More info https://github.com/hakimel/reveal.js#dependencies
+      dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true },
+        { src: 'plugin/math/math.js', async: true }
+      ]
+    });
+
+  </script>
+</body>
+</html>
