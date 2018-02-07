@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Soutenance de Stage de Recherche</title>
+
+    <meta name="description" content="Soutenance de stage">
+    <meta name="author" content="José MORAN">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+</head>
+
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>Soutenance de stage</h1>
+        <h3>Algorithme de Monte-Carlo diagrammatique en espace réel</h3>
+        <center>
+          <p>José MORAN</p>
+          <p>X2013</p>
+        </center>
+        <img src="Images/cdfw.png" alt="cdf" height="120" style="border:none; margin-right:100px; background:none">
+        <img src="Images/logoxw.png" alt="polytechnique" height="150" style="border:none; margin-left:100px; background:none">
+      </section>
+
+      <section>
+        <h2>Plan</h2>
+        <ul>
+          <li>Introduction</li>
+        </ul>
+        <p>
+          <ol>
+            <li class="fragment">Les systèmes électroniques fortement corrélés</li>
+            <li class="fragment">Le Monte-Carlo diagrammatique</li>
+            <li class="fragment">Résultats et $\alpha$-shift</li>
+          </ol>
+        </p>
+        <p>
+          <ul>
+            <li class="fragment">Conclusion et perspectives</li>
+          </ul>
+        </p>
+      </section>
+
+      <section>
+        <section>
+          <h3>Les systèmes électroniques fortement corrélés</h3>
+          <img src="./Images/Cuprates_phasedigagram_en.svg" alt="cuprate pd" style="border:none; background:white">
+          <center>
+            <p>
+              <small>Diagramme de phase des cuprates</small>
+            </p>
+          </center>
+        </section>
+        <section>
+          <h3>Les systèmes électroniques fortement corrélés</h3>
+          <p>
+            Modèle de Hubbard :
+          </p>
+          <center>
+            <img src="./Images/equationhubbard.svg" height="120" alt="hubbard", style="border:none; background:none">      
+          </center>
+          <ul>
+            <li class="fragment">Pas de solution analytique dans le cas général</li>
+          </ul>
+          <p class="fragment">$\Rightarrow$ traitement perturbatif avec des diagrammes de Feynman</p>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3>Diagrammes de Feynman</h3>
+          <p>
+            <img src="./Images/feyn.png" height="300" alt="feyn", style="border:none; background:white">
+          </p>
+          <p>
+            <img src="./Images/greenexpansion.png" alt="greenexpansion" height="175" style="border:none">
+          </p>
+        </section>
+        <section>
+          <h3>Expansion diagrammatique de la self-energy</h3>
+          <p>
+            <img src="./Images/dyson.png" alt="dyson" height="100" style="border:none">
+          </p>
+          <p>
+            <img src="./Images/selfexpansion.png" alt="selfexpansion" height="275" style="border:none">
+          </p>
+        </section>
+        <section>
+          <h3>Problèmes</h3>
+          <ul>
+            <li class="fragment">Nombre de diagrammes factoriel en l'ordre de perturbation</li>
+            <li class="fragment">Problème de signe fermionique </li>
+          </ul>
+          <p class="fragment">$\Rightarrow$ nécessité d'algorithmes efficaces</p>
+        </section>
+      </section>
+
+      <section>
+        <section>
+        <h3>Algorithme de Monte-Carlo</h3>
+          <p>Concept : faire du sampling d'une distribution à l'aide d'une chaîne de Markov</p>
+          <video width="500" controls autoplay loop>
+            <source src="./animations/anim2part.ogg" type="video/ogg">
+          </video> 
+          </section>
+        <section>
+          <p>Monte-Carlo diagrammatique : on fait une marche aléatoire dans l'espace des diagrammes.</p>
+          <img src="./animations/diagmc.gif" alt="diagmc" height="300" style="border:none">
+          <p class="fragment">Le temps que notre algorithme passe dans chaque diagramme nous donne sa valeur</p>
+        </section>
+        <section>
+          <h3>Évaluation de la self-energy</h3>
+          <p>
+            <img src="./Images/selfexpansion.png" alt="selfexpansion" height="350" style="border:none">
+          </p>
+        </section>
+        <section>
+          <h3>Motivations</h3>
+          <ul>
+            <li>Proposer une méthode différente des algorithmes de Monte-Carlo diagrammatique existants</li>
+            <li class="fragment">Calculer de manière efficace</li>
+            <li class="fragment">Pouvoir étudier la dépendance $\Sigma(i\omega_n, k)$</li>
+          </ul>
+        </section>
+        <section>
+          <h1>But :</h1>
+          <h3>Faire un benchmark avec une évaluation de la self-energy dans la limite atomique</h3>
+          <img src="./Images/atomiclimit.svg" alt="uat" height="80" style="border:none; background:none">
+          <img src="./Images/selfatom.svg" alt="sat" height="120" style="border:none; background:none">
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3>Présentation des résultats</h3>
+          <p>On calculera une somme partielle de la série de perturbation de $\Sigma$ en $U$.</p>
+          <p>$\Sigma \simeq \sum_{i=1}^{N_p} \sigma_i U^i$</p>
+          <p>Pour les résultats présentés, $U=1.2$, $\mu=0.45 U$ et $\beta = 2$.</p>
+        </section>
+        <section>
+          <h3>Premiers résultats</h3>
+          <p>Bonne convergence de l'algorithme vers les résultats analytiques</p>
+          <img src="./Images/u12a0/realomega1.png" alt="noshift" height="500" style="borders:none">
+        </section>
+        <section>
+          <p>...les valeurs numériques coïncident très bien avec les valeurs analytiques..</p>
+          <img src="./Images/u12a0/imomega1.png" alt="noshiftim" height="500" style="borders:none">
+        </section>
+        <section>
+          <p>...mais il est difficile d'extrapoler avec peu d'ordres.</p>
+          <img src="./animations/rea0.gif" alt="realsigma" height="500" style="borders:none">
+          <p class="fragment">La série converge-t-elle ?</p>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3>$\alpha$-shift</h3>
+          <p>Structure analytique de la série perturbative :</p>
+          <p>$\Sigma=\sum_k \sigma_k U^k$</p>
+          <p class="fragment"><b>Quel rayon de convergence pour cette série ?</b></p>
+        </section>
+        <section>
+          <p>Exemple pour $U=1.2$</p>
+          <img src="./Images/polesu12.png" alt="polesu12" height="500" style="borders:none">
+          <p>Plot complexe de $\Sigma(i\omega_0)$</p>
+        </section>
+        <section>
+          <p>Un exemple plus extrême : $U=3.0$</p>
+          <img src="./Images/polesu3.png" alt="polesu12" height="500" style="borders:none">
+          <p>Plot complexe de $\Sigma(i\omega_0)$</p>
+        </section>
+        <section>
+          <h3>Introduction d'un Hamiltonien shifté</h3>
+          <img src="./Images/shift.svg" alt="shift" height="120" style="border:none; background:none">
+          <p>Identique au Hamiltonien de départ pour $\xi=U$.</p>
+        </section>
+        <section>
+          <h3>Motivation</h3>
+          <p>$\Rightarrow$ améliorer la convergence de la série <b>analytique</b>.</p>
+          <video width="600" controls autoplay loop>
+            <source src="./animations/polesomega0.ogg" type="video/ogg">
+          </video>
+          <p>Structure des poles pour $\Sigma(\omega_0)$</p> 
+        </section>
+        <section>
+          <h3>Autres fréquences</h3>
+          <video width="600" controls autoplay loop>
+            <source src="./animations/polesomega1.ogg" type="video/ogg">
+          </video> 
+          <p>Structure des poles pour $\Sigma(\omega_1)$</p> 
+        </section>
+        <section>
+          <h3>Autres fréquences</h3>
+          <video width="600" controls autoplay loop>
+            <source src="./animations/polesomega3.ogg" type="video/ogg">
+          </video> 
+          <p>Structure des poles pour $\Sigma(\omega_3)$</p> 
+        </section>
+      </section>
+      <section>
+        <section>
+          <h3>Résultats </h3>
+          <h5>$\alpha=0.6\quad U=1.2 \quad \beta=2 \quad \mu = 0.54$</h5>
+          <p>Convergence nettement améliorée !</p>
+          <img src="./Images/u12a06/reomega0.png" alt="noshift" height="450" style="borders:none">
+        </section>
+        <section>
+          <p>On parvient même à converger dès l'ordre 2</p>
+          <img src="./Images/u12a06/imomega0.png" height="500" style="borders:none">
+        </section>
+        <section>
+          <h3>Différence flagrante !</h3>
+          <img src="./animations/rea06.gif" alt="realsigma" height="500" style="borders:none">
+        </section>
+        <section>
+          <img src="./animations/ima06.gif" alt="imsigma" height="500" style="borders:none">
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2>Conclusion</h2>
+          <ul>
+            <li>Création et implémentation du premier algorithme de Monte-Carlo diagrammatique en espace-réel</li>
+            <li>Algorithme testé</li>
+            <li>Introduction de la technique de resommation $\alpha$-shift</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Remarques</h2>
+          <ul>
+            <li class="fragment">Déjà utilisable pour des modèles d'impuretés</li>
+            <li class="fragment">Pas restreint à la self-energy, ni au modèle de Hubbard !</li>
+            <li class="fragment">Extension triviale du code au réseau</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Perspectives pour la suite</h2>
+          <ul>
+            <li>Comparer à d'autres méthodes</li>
+            <li>Poursuivre l'étude du $\alpha$-shift</li>
+            <li>Étendre au réseau</li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <h2>Questions?</h2>
+      </section>
+    </div>
+
+
+
+  </div>
+
+
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+
+      math: {
+          mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+          config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+      },
+      // More info https://github.com/hakimel/reveal.js#dependencies
+      dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true },
+        { src: 'plugin/math/math.js', async: true }
+      ]
+    });
+
+  </script>
+</body>
+</html>
